@@ -6,11 +6,14 @@ import SearchBar from './components/SearchBar'
 import SideBar from "./components/SideBar.jsx"
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isSelected, setSelected] = useState(false)
 
+  function handleUnSelected() {
+    setSelected(false)
+  }
   return (
-    <div className='app-container'>
-      <SearchBar />
+    <div className='app-container' onClick={handleUnSelected}>
+      <SearchBar isSelected={isSelected} setSelected={setSelected} handleUnSelected={handleUnSelected} />
       <SideBar />
       <MainFeed />
 
