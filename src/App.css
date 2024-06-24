@@ -1,0 +1,32 @@
+html {
+  background-color: #282828;
+}
+
+.app-container {
+  display: grid;
+  grid-template-areas: 
+    "top  top  top  top  top  top"
+    "top  top  top  top  top  top"
+    "side main main main main main"
+    "side main main main main main"
+    "side main main main main main";
+  grid-template-columns: repeat(6, 1fr)
+
+}
+
+.search {
+  grid-area: top;
+  height: 8rem;
+  background-color: blue;
+}
+
+.sidebar {
+  grid-area: side;
+  background-color: red;
+  height: 100vh;
+}
+
+.main {
+  grid-area: main;
+  background-color: green;
+}
