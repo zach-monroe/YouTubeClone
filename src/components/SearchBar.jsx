@@ -5,10 +5,10 @@ import { motion } from "framer-motion"
 const SearchBar = ({ inputRef, isSelected, setSelected, handleUnSelected }) => {
   const [search, setSearch] = useState("")
 
-  function handleSubmit(e) {
+  function handleSubmit() {
     handleUnSelected()
     console.log(search)
-    e.target.blur()
+    inputRef.current.blur()
   }
 
 
@@ -31,9 +31,19 @@ const SearchBar = ({ inputRef, isSelected, setSelected, handleUnSelected }) => {
   };
 
 
-  return <motion.div initial="initial" variants={variants} animate={isSelected ? 'selected' : 'initial'} className="search">
-    <SearchForm search={search} inputRef={inputRef} setSelected={setSelected} setSearch={setSearch} handleSubmit={handleSubmit} />
-  </motion.div>
+  return <div className="search">
+    {isSelected && (
+      <motion.div
+        className="search-backdrop"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.5 }}
+        transition={{ duration: 0.3 }}
+      />
+    )}
+    <motion.div initial="initial" variants={variants} animate={isSelected ? 'selected' : 'initial'} className="search">
+      <SearchForm search={search} inputRef={inputRef} setSelected={setSelected} setSearch={setSearch} handleSubmit={handleSubmit} />
+    </motion.div>
+  </div>
 }
 
 export default SearchBar

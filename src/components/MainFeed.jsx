@@ -1,6 +1,10 @@
+import VideoCard from "./MainFeed/VideoCard"
+
 const MainFeed = () => {
   return <div className="main">
-    Main Feed
+    <div className="main-grid">
+      <VideoCard /> <VideoCard /> <VideoCard />
+    </div>
   </div>
 }
 
