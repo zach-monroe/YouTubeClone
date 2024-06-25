@@ -8,9 +8,9 @@ html {
   grid-template-areas: 
     "top  top  top  top  top  top  top"
     "top  top  top  top  top  top  top"
-    "side main main main main main main"
-    "side main main main main main main"
-    "side main main main main main main";
+    "side side main main main main main"
+    "side side main main main main main"
+    "side side main main main main main";
   grid-template-columns: repeat(7, 0.75fr)
   transition: background-color 0.5s ease-in-out;
 
@@ -18,7 +18,6 @@ html {
 
 
 .search {
-  position: relative;
   grid-area: top;
   display: flex;
   justify-content: center;
@@ -67,6 +66,7 @@ html {
   border-color: #3f3f3f;
   border-style: solid;
   height: 74vh;
+  width: 10vw;
 }
 
 .tab {
