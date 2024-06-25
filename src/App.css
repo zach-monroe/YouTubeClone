@@ -7,12 +7,12 @@ html {
   display: grid;
   gap: 2em;
   grid-template-areas: 
-    "top  top  top  top  top  top"
-    "top  top  top  top  top  top"
-    "side main main main main main"
-    "side main main main main main"
-    "side main main main main main";
-  grid-template-columns: repeat(6, 1fr)
+    "top  top  top  top  top  top  top"
+    "top  top  top  top  top  top  top"
+    "side main main main main main main"
+    "side main main main main main main"
+    "side main main main main main main";
+  grid-template-columns: repeat(7, 0.75fr)
 
 }
 
@@ -40,11 +40,26 @@ html {
 
 .sidebar {
   grid-area: side;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   border-width: 0;
   border-right-width: 0.125em;
   border-color: #3f3f3f;
   border-style: solid;
   height: 74vh;
+}
+
+.tab {
+  background-color: #3f3f3f;
+  height: 5em;
+  width: 5em;
+  border-radius: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .main {
@@ -55,3 +70,5 @@ html {
   width: fill;
   align-items: center;
 }
+
+
