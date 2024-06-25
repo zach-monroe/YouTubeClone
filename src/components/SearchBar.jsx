@@ -1,8 +1,8 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import SearchForm from "./SearchBar/SearchForm"
 import { motion } from "framer-motion"
 
-const SearchBar = ({ isSelected, setSelected, handleUnSelected }) => {
+const SearchBar = ({ inputRef, isSelected, setSelected, handleUnSelected }) => {
   const [search, setSearch] = useState("")
 
   function handleSubmit(e) {
@@ -11,10 +11,6 @@ const SearchBar = ({ isSelected, setSelected, handleUnSelected }) => {
     e.target.blur()
   }
 
-  function handleSelect(e) {
-    e.stopPropagation()
-    setSelected(true)
-  }
 
 
   const variants = {
@@ -35,8 +31,8 @@ const SearchBar = ({ isSelected, setSelected, handleUnSelected }) => {
   };
 
 
-  return <motion.div initial="initial" variants={variants} animate={isSelected ? 'selected' : 'initial'} onClick={handleSelect} className="search">
-    <SearchForm search={search} setSearch={setSearch} handleSubmit={handleSubmit} />
+  return <motion.div initial="initial" variants={variants} animate={isSelected ? 'selected' : 'initial'} className="search">
+    <SearchForm search={search} inputRef={inputRef} setSelected={setSelected} setSearch={setSearch} handleSubmit={handleSubmit} />
   </motion.div>
 }
 

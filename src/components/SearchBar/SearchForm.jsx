@@ -1,5 +1,5 @@
 
-const SearchForm = ({ setSearch, search, handleSubmit }) => {
+const SearchForm = ({ setSearch, search, handleSubmit, inputRef, setSelected }) => {
   function handleChange(e) {
     setSearch(e.target.value)
   }
@@ -10,10 +10,15 @@ const SearchForm = ({ setSearch, search, handleSubmit }) => {
   }
 
 
+  function handleSelect(e) {
+    e.stopPropagation()
+    inputRef.current.focus()
+    setSelected(true)
+  }
 
   return <div
     className="search-form">
-    <input type="text" onChange={handleChange} onKeyDown={keyDown} value={search} />
+    <input type="text" onChange={handleChange} onKeyDown={keyDown} onClick={handleSelect} value={search} ref={inputRef} />
   </div>
 }
 

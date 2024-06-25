@@ -1,5 +1,6 @@
 html {
   background-color: #282828;
+  overflow-x: hidden;
 }
 
 .app-container {
@@ -43,9 +44,14 @@ html {
   border-right-width: 0.125em;
   border-color: #3f3f3f;
   border-style: solid;
-  height: 100vh;
+  height: 74vh;
 }
 
 .main {
   grid-area: main;
+  display: flex;
+  justify-content: center;
+  height: fill;
+  width: fill;
+  align-items: center;
 }
