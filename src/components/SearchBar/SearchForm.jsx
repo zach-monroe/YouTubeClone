@@ -1,6 +1,6 @@
 const SearchForm = ({ setSearch, search, handleSubmit, inputRef, setSelected }) => {
 
-  //HACK: Props are being sent around way too much. Extremely messy. Must be abetter fix.
+  // HACK: Props are being sent around way too much. Extremely messy. Must be abetter fix.
   function handleChange(e) {
     setSearch(e.target.value);
   }

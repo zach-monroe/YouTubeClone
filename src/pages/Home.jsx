@@ -7,6 +7,8 @@ import { apikey } from "../config.js"
 
 function Home() {
   const [query, setQuery] = useState("")
+
+  const [videoData, setVideoData] = useState({})
   //Passing down a ref for focusing and unfocusing the search bar so that I can access it with isSelected state changes.
   const inputRef = useRef(null)
 
@@ -27,7 +29,8 @@ function Home() {
       try {
         const response = await fetch(url)
         const data = await response.json()
-        console.log(JSON.stringify(data))
+        setVideoData(data)
+        console.log(JSON.stringify(videoData))
       } catch (error) {
 
       }
@@ -48,7 +51,7 @@ function Home() {
     <div className='app-container' onClick={handleUnSelected} >
       <SearchBar isSelected={isSelected} setQuery={setQuery} setSelected={setSelected} handleUnSelected={handleUnSelected} inputRef={inputRef} />
       <SideBar />
-      <MainFeed />
+      <MainFeed videoData={videoData} />
 
     </div >
   )
