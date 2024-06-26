@@ -3,8 +3,8 @@ const VideoCard = ({ thumb, videoId, title, desc }) => {
     <div>
       <a href={`www.youtube/watch?v=${videoId}`}>
         <img src={thumb} /></a>
-      <h3>{title}</h3>
-      <p>{desc}</p>
+      <h3 className="truncate">{title}</h3>
+      <p className="truncate">{desc}</p>
     </div>
 
   </div>

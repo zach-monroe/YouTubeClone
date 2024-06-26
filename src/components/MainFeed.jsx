@@ -13,7 +13,7 @@ const MainFeed = ({ videoData }) => {
         {Array.isArray(items) && items.map((item, index) => (
           <VideoCard
             key={index}
-            thumb={item.snippet.thumbnails.default.url}
+            thumb={item.snippet.thumbnails.medium.url}
             videoId={item.id.videoId}
             title={item.snippet.title}
             desc={item.snippet.description}

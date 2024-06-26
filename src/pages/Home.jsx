@@ -25,7 +25,7 @@ function Home() {
       if (query === "") {
         setQuery("trending")
       }
-      const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query}&key=${apikey}`
+      const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query}&key=${apikey}&maxResults=6&safeSearch=strict&type=video`
       try {
         const response = await fetch(url)
         const data = await response.json()

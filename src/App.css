@@ -1,6 +1,5 @@
 html {
   background-color: #282828;
-  overflow-x: hidden;
 }
 
 /* Styles the app container to be one massive grid, handles background transitions*/
@@ -58,26 +57,7 @@ html {
   position: relative;
 }
 
-.suggestion-container{
-  display: flex;
-  height: 10em;
-  width: 32em;
-  padding-left: 0;
-  border-radius: 1em;
-  margin-top: 2em;
-  justify-content: start;
-  align-items: space-around;
-  background-color: #3f3f3f;
-}
 
-.suggestion {
-  display: flex;
-  align-items: center;
-  width: 30em;
-  padding-left: 2em;
-  margin-top: 1em;
-  padding-bottom: 0.125em;
-}
 
 .selected {
   background-color: #717171;
@@ -120,6 +100,7 @@ html {
   height: auto;
   width: auto;
   align-items: center;
+  overflow-y: scroll;
 }
 
 /* video grid */
@@ -136,24 +117,31 @@ html {
 .video-card {
   display: flex;
   background-color: #3f3f3f;
-  justify-content: center;
+  justify-content: start;
   height: 15em;
   border-radius: 1em;
-  text-align: center;
+  text-align: left;
   
 }
 
 /* styling the individual video cards */
 .video-card img {
   height: 10em;
-  width: 18em;
+  width: 20em;
   display: block;
-  border-radius: 1em;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
 }
 
-.video-card h3 p {
-  
+.truncate {
+  text-align: left;
+  width: 15em;
+  white-space: nowrap;      /* Prevents text from wrapping to multiple lines */
+  overflow: hidden;         /* Hides overflowing content */
+  text-overflow: ellipsis;
+  margin-left: 1em;/* Adds ellipsis (...) at the end of the truncated text */
 }
+
 
 /* animates a moving gradient into the backgroun of the tab on hover */
 .tab:hover {
