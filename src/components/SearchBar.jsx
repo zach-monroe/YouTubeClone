@@ -1,15 +1,18 @@
 import { useState } from "react";
 import SearchForm from "./SearchBar/SearchForm";
 import { motion } from "framer-motion";
+import getVideos from "../hooks/getVideos";
 
-const SearchBar = ({ inputRef, isSelected, setSelected, handleUnSelected }) => {
+const SearchBar = ({ inputRef, isSelected, setSelected, handleUnSelected, setQuery }) => {
   const [search, setSearch] = useState("");
+
 
 
   function handleSubmit() {
     handleUnSelected();
     console.log(search);
     inputRef.current.blur();
+    setQuery(search)
   }
 
   const variants = {
