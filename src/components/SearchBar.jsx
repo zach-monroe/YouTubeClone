@@ -1,9 +1,12 @@
-import { useState, useRef } from "react"
+import { useState } from "react"
 import SearchForm from "./SearchBar/SearchForm"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
+import Suggestions from "./SearchBar/Suggestions"
 
 const SearchBar = ({ inputRef, isSelected, setSelected, handleUnSelected }) => {
   const [search, setSearch] = useState("")
+
+  var showSuggestions = search.length > 0 && isSelected === true
 
   function handleSubmit() {
     handleUnSelected()
@@ -28,6 +31,15 @@ const SearchBar = ({ inputRef, isSelected, setSelected, handleUnSelected }) => {
         damping: 30,
       },
     },
+    suggestion: {
+      scale: 1.25,
+      y: '48vh',
+      transition: {
+        duration: 0,
+        ease: "easeOut",
+      }
+
+    },
   };
 
 
@@ -40,8 +52,14 @@ const SearchBar = ({ inputRef, isSelected, setSelected, handleUnSelected }) => {
         transition={{ duration: 0.3 }}
       />
     )}
-    <motion.div initial="initial" variants={variants} animate={isSelected ? 'selected' : 'initial'} className="search">
-      <SearchForm search={search} inputRef={inputRef} setSelected={setSelected} setSearch={setSearch} handleSubmit={handleSubmit} />
+    <motion.div initial="initial" variants={variants} animate={isSelected ? (showSuggestions ? 'suggestion' : 'selected') : 'initial'} className="search">
+      <div>
+        <SearchForm search={search} inputRef={inputRef} setSelected={setSelected} setSearch={setSearch} handleSubmit={handleSubmit} />
+
+        <AnimatePresence>
+          {showSuggestions && <Suggestions handleSubmit={handleSubmit} search={search} setSearch={setSearch} />}
+        </AnimatePresence>
+      </div>
     </motion.div>
   </div>
 }
