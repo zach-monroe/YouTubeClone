@@ -1,13 +1,12 @@
 import { useState } from "react";
 import SearchForm from "./SearchBar/SearchForm";
 import { motion } from "framer-motion";
-import getVideos from "../hooks/getVideos";
 
 const SearchBar = ({ inputRef, isSelected, setSelected, handleUnSelected, setQuery }) => {
   const [search, setSearch] = useState("");
 
 
-
+  //handles when the user hits enter on the search bar.
   function handleSubmit() {
     handleUnSelected();
     console.log(search);

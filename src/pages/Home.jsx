@@ -9,10 +9,15 @@ function Home() {
   const [query, setQuery] = useState("")
   //Passing down a ref for focusing and unfocusing the search bar so that I can access it with isSelected state changes.
   const inputRef = useRef(null)
+
+
   //Used for determining if the search bar is selected or not.  Also used for animating the searchbar to the center of the screen.
-  //PERF: change this to a global state using useContext() Maybe? would have to include the ref that is getting passed down as well.  May not make sense
+  //HACK: change this to a global state using useContext() Maybe? would have to include the ref that is getting passed down as well.  May not make sense
   const [isSelected, setSelected] = useState(false)
 
+
+  //set up as useEffect for initial testing and configuration.
+  //TODO: Refactor this to use custom hooks and useCallback
   useEffect(() => {
     const fetchVideos = async () => {
       if (query === "") {
@@ -30,6 +35,10 @@ function Home() {
 
     fetchVideos()
   }, [query])
+
+
+  //HACK: could this also be a useContext?
+  //
   // Handles if the user clicks anywhere inside the app container, unselecting the search bar and moving it back to it's normal position
   function handleUnSelected() {
     setSelected(false)
