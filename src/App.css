@@ -1,5 +1,6 @@
 html {
   background-color: #282828;
+  overflow: none;
 }
 
 /* Styles the app container to be one massive grid, handles background transitions*/
@@ -13,7 +14,8 @@ html {
     "side side main main main main main";
   grid-template-columns: repeat(7, 0.75fr)
   transition: background-color 0.5s ease-in-out;
-
+  overflow-x: none;
+  width: "100vw";
 }
 
 /*styles the parent container for the searchbar and search form insures whole component is in front of the backdrop*/
@@ -98,9 +100,9 @@ html {
   display: flex;
   justify-content: center;
   height: auto;
-  width: auto;
+  width: 89vw;
   align-items: center;
-  overflow-y: scroll;
+  overflow-x: none;
 }
 
 /* video grid */
@@ -133,13 +135,21 @@ html {
   border-top-right-radius: 1em;
 }
 
+
+
 .truncate {
   text-align: left;
   width: 15em;
-  white-space: nowrap;      /* Prevents text from wrapping to multiple lines */
-  overflow: hidden;         /* Hides overflowing content */
+  white-space: nowrap;      
+  overflow: hidden;         
   text-overflow: ellipsis;
-  margin-left: 1em;/* Adds ellipsis (...) at the end of the truncated text */
+  margin-left: 10px;
+  padding-top: 10px;
+}
+
+.video-card h3, .video-card p {
+  margin-bottom: 0;
+  margin-top: 0.125em;
 }
 
 
@@ -154,7 +164,7 @@ html {
     
 }
 
-.tab:hover svg{
+.tab:hover svg {
   fill: #282828;
 }
 
