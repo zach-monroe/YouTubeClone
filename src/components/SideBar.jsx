@@ -10,6 +10,8 @@ const SideBar = ({ isSelected }) => {
     }
   }, [isSelected])
 
+  //have to add search functionality if the tab changes.
+
 
 
   return <div className="sidebar">
