@@ -50,7 +50,7 @@ function Home() {
   return (
     <div className='app-container' onClick={handleUnSelected} >
       <SearchBar isSelected={isSelected} setQuery={setQuery} setSelected={setSelected} handleUnSelected={handleUnSelected} inputRef={inputRef} />
-      <SideBar />
+      <SideBar isSelected={isSelected} />
       <MainFeed videoData={videoData} />
 
     </div >
